@@ -1,0 +1,29 @@
+﻿@model ProfessorWeb.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RsvpForm</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <p>Your name : @Html.TextBoxFor(x => x.Name)</p>
+        <p>Your email: @Html.TextBoxFor(x => x.Email)</p>
+        <p>You'll go?
+            @Html.DropDownListFor(x => x.WillAttend, new [] { 
+                new SelectListItem() { Text = "Yes, Im will", Value = Boolean.TrueString},
+                new SelectListItem() { Text = "No, sorry", Value = Boolean.FalseString}
+            })
+        </p>
+        <input type="submit" value="Send form" />
+
+    }
+</body>
+</html>
